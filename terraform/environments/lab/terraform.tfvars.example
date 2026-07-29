@@ -1,0 +1,62 @@
+##############################################################
+# AWS Region
+#
+# Defines the AWS Region where the lab will be deployed.
+##############################################################
+aws_region = "us-east-2"
+
+##############################################################
+# Project Name
+#
+# Provides the naming prefix used across project resources.
+##############################################################
+project_name = "aws-threat-detection-lab"
+
+##############################################################
+# Environment Name
+#
+# Identifies this deployment as a lab environment.
+##############################################################
+environment = "lab"
+
+##############################################################
+# Resource Owner
+#
+# Adds the owner value to the default AWS resource tags.
+##############################################################
+owner = "George-Awa"
+
+##############################################################
+# VPC CIDR Block
+#
+# Defines the private address space assigned to the VPC.
+##############################################################
+vpc_cidr = "10.0.0.0/16"
+
+##############################################################
+# Public Subnet A CIDR Block
+#
+# Defines the address space for the first public subnet.
+##############################################################
+public_subnet_a_cidr = "10.0.1.0/24"
+
+##############################################################
+# Public Subnet B CIDR Block
+#
+# Defines the address space for the second public subnet.
+##############################################################
+public_subnet_b_cidr = "10.0.2.0/24"
+
+##############################################################
+# Private Subnet A CIDR Block
+#
+# Defines the address space for the first private subnet.
+##############################################################
+private_subnet_a_cidr = "10.0.11.0/24"
+
+##############################################################
+# Private Subnet B CIDR Block
+#
+# Defines the address space for the second private subnet.
+##############################################################
+private_subnet_b_cidr = "10.0.12.0/24"

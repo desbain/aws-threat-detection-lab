@@ -1,0 +1,48 @@
+# Terraform working directories
+**/.terraform/*
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Terraform plan files
+*.tfplan
+tfplan
+
+# Terraform variable files containing sensitive values
+*.tfvars
+*.tfvars.json
+!terraform.tfvars.example
+
+# Terraform lock override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform crash logs
+crash.log
+crash.*.log
+
+# CLI configuration
+.terraformrc
+terraform.rc
+
+# AWS credentials and keys
+.aws/
+*.pem
+*.key
+
+# Environment files
+.env
+.env.*
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Application secrets
+secrets/
+credentials*
