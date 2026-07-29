@@ -125,3 +125,43 @@ variable "private_subnet_b_cidr" {
     error_message = "Private subnet B must use a valid IPv4 CIDR block."
   }
 }
+
+##############################################################
+# Availability Zone A
+#
+# Defines the first Availability Zone used by the networking
+# module.
+#
+# Public subnet A and private subnet A are placed in this zone.
+#
+# Explicitly providing the zone makes local development and
+# GitHub Actions produce the same network layout.
+##############################################################
+variable "availability_zone_a" {
+  description = "First Availability Zone used by the networking module."
+  type        = string
+
+  validation {
+    condition     = length(var.availability_zone_a) > 0
+    error_message = "Availability Zone A cannot be empty."
+  }
+}
+
+##############################################################
+# Availability Zone B
+#
+# Defines the second Availability Zone used by the networking
+# module.
+#
+# Public subnet B and private subnet B are placed in this zone
+# to distribute resources across a separate failure domain.
+##############################################################
+variable "availability_zone_b" {
+  description = "Second Availability Zone used by the networking module."
+  type        = string
+
+  validation {
+    condition     = length(var.availability_zone_b) > 0
+    error_message = "Availability Zone B cannot be empty."
+  }
+}

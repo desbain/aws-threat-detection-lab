@@ -155,15 +155,16 @@ output "private_route_table_id" {
 ##############################################################
 # Availability Zones
 #
-# Returns the two Availability Zones selected for the network.
+# Returns the two Availability Zones configured for the lab.
 #
-# This output helps document how the lab resources are
-# distributed across the AWS Region.
+# This output documents how the public and private subnets are
+# distributed across separate AWS failure domains.
 ##############################################################
 output "availability_zones" {
-  description = "Availability Zones used by the public and private subnets."
+  description = "Availability Zones used by the lab network."
+
   value = [
-    data.aws_availability_zones.available.names[0],
-    data.aws_availability_zones.available.names[1]
+    var.availability_zone_a,
+    var.availability_zone_b
   ]
 }

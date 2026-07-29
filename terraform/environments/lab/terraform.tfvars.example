@@ -60,3 +60,18 @@ private_subnet_a_cidr = "10.0.11.0/24"
 # Defines the address space for the second private subnet.
 ##############################################################
 private_subnet_b_cidr = "10.0.12.0/24"
+
+
+##############################################################
+# Availability Zone A
+#
+# Defines the first Availability Zone used by the network.
+##############################################################
+availability_zone_a = "us-east-2a"
+
+##############################################################
+# Availability Zone B
+#
+# Defines the second Availability Zone used by the network.
+##############################################################
+availability_zone_b = "us-east-2b"

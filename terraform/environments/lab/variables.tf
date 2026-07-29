@@ -89,3 +89,26 @@ variable "private_subnet_b_cidr" {
   default     = "10.0.12.0/24"
 }
 
+##############################################################
+# Availability Zone A
+#
+# Defines the first Availability Zone used for public subnet A
+# and private subnet A.
+##############################################################
+variable "availability_zone_a" {
+  description = "First Availability Zone used by the lab network."
+  type        = string
+  default     = "us-east-2a"
+}
+
+##############################################################
+# Availability Zone B
+#
+# Defines the second Availability Zone used for public subnet B
+# and private subnet B.
+##############################################################
+variable "availability_zone_b" {
+  description = "Second Availability Zone used by the lab network."
+  type        = string
+  default     = "us-east-2b"
+}

@@ -20,19 +20,6 @@
 ##############################################################
 
 ##############################################################
-# Available Availability Zones
-#
-# Retrieves the Availability Zones currently available in the
-# selected AWS Region.
-#
-# The first two available zones are used to distribute the
-# public and private subnets across separate failure domains.
-##############################################################
-data "aws_availability_zones" "available" {
-  state = "available"
-}
-
-##############################################################
 # Threat Detection Lab VPC
 #
 # Creates the isolated network boundary for the entire lab.
@@ -80,7 +67,7 @@ resource "aws_internet_gateway" "this" {
 resource "aws_subnet" "public_a" {
   vpc_id                  = aws_vpc.this.id
   cidr_block              = var.public_subnet_a_cidr
-  availability_zone       = data.aws_availability_zones.available.names[0]
+  availability_zone       = var.availability_zone_a
   map_public_ip_on_launch = true
 
   tags = {
@@ -102,7 +89,7 @@ resource "aws_subnet" "public_a" {
 resource "aws_subnet" "public_b" {
   vpc_id                  = aws_vpc.this.id
   cidr_block              = var.public_subnet_b_cidr
-  availability_zone       = data.aws_availability_zones.available.names[1]
+  availability_zone       = var.availability_zone_b
   map_public_ip_on_launch = true
 
   tags = {
@@ -124,7 +111,7 @@ resource "aws_subnet" "public_b" {
 resource "aws_subnet" "private_a" {
   vpc_id                  = aws_vpc.this.id
   cidr_block              = var.private_subnet_a_cidr
-  availability_zone       = data.aws_availability_zones.available.names[0]
+  availability_zone       = var.availability_zone_a
   map_public_ip_on_launch = false
 
   tags = {
@@ -146,7 +133,7 @@ resource "aws_subnet" "private_a" {
 resource "aws_subnet" "private_b" {
   vpc_id                  = aws_vpc.this.id
   cidr_block              = var.private_subnet_b_cidr
-  availability_zone       = data.aws_availability_zones.available.names[1]
+  availability_zone       = var.availability_zone_b
   map_public_ip_on_launch = false
 
   tags = {
