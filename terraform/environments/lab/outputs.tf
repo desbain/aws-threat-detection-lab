@@ -88,3 +88,47 @@ output "availability_zones" {
   description = "Availability Zones used by the lab network."
   value       = module.networking.availability_zones
 }
+
+##############################################################
+# ALB Security Group ID
+#
+# Returns the security group that will be attached to the
+# internet-facing Application Load Balancer.
+##############################################################
+output "alb_security_group_id" {
+  description = "Unique identifier of the ALB security group."
+  value       = module.security_groups.alb_security_group_id
+}
+
+##############################################################
+# EC2 Web Security Group ID
+#
+# Returns the security group that will protect private EC2 web
+# application instances.
+##############################################################
+output "web_security_group_id" {
+  description = "Unique identifier of the EC2 web-tier security group."
+  value       = module.security_groups.web_security_group_id
+}
+
+##############################################################
+# RDS Security Group ID
+#
+# Returns the security group that will protect the private
+# PostgreSQL database.
+##############################################################
+output "rds_security_group_id" {
+  description = "Unique identifier of the Amazon RDS security group."
+  value       = module.security_groups.rds_security_group_id
+}
+
+##############################################################
+# VPC Endpoint Security Group ID
+#
+# Returns the security group that will protect future interface
+# VPC endpoints.
+##############################################################
+output "vpce_security_group_id" {
+  description = "Unique identifier of the VPC endpoint security group."
+  value       = module.security_groups.vpce_security_group_id
+}

@@ -30,3 +30,27 @@ module "networking" {
   private_subnet_a_cidr = var.private_subnet_a_cidr
   private_subnet_b_cidr = var.private_subnet_b_cidr
 }
+
+##############################################################
+# Security Groups Module
+#
+# Creates least-privilege network controls for:
+# - Internet-facing Application Load Balancer
+# - Private EC2 web application tier
+# - Private Amazon RDS database
+# - Future interface VPC endpoints
+#
+# The module consumes the VPC identifier created by the
+# networking module.
+##############################################################
+module "security_groups" {
+  source = "../../modules/security-groups"
+
+  project_name = var.project_name
+  environment  = var.environment
+  vpc_id       = module.networking.vpc_id
+
+  additional_tags = {
+    SecurityBoundary = "ApplicationStack"
+  }
+}
