@@ -30,3 +30,9 @@ All AWS resources are managed with Terraform.
 ## Current Status
 
 Phase 1: Core infrastructure deployment.
+
+## Networking Status
+
+The networking foundation is deployed in `us-east-2` and includes a custom VPC,
+two public subnets, two private subnets, an Internet Gateway, one NAT Gateway,
+public and private route tables, and Terraform remote state in Amazon S3.
